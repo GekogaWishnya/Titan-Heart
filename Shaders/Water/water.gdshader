@@ -15,10 +15,9 @@ void fragment() {
 	vec3 world_pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	vec3 camera_dir = normalize(world_pos - CAMERA_POSITION_WORLD);
 	float camera_y_half_angle = asin(camera_dir.y) / PI;
-	
 	vec2 sphere_uv = vec2(
-		0.0 + atan(camera_dir.x, -camera_dir.z) / (2.0 * PI),
-		0.5 + camera_y_half_angle
+		atan(camera_dir.x, -camera_dir.z) / (2.0 * PI),
+		(0.5 + camera_y_half_angle) * 2.0
 	);
 	
 	float mix_factor = expStep(-camera_y_half_angle * 2.0, tone_factor);
