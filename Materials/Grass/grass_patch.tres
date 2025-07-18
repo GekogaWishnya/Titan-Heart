@@ -1,7 +1,19 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1x4m70410nuy"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://1x4m70410nuy"]
 
 [ext_resource type="Shader" uid="uid://dswonvtwc1nbw" path="res://Shaders/Grass/grass.gdshader" id="1_nvhxk"]
 [ext_resource type="Texture2D" uid="uid://c8j451wdkwlaw" path="res://Textures/Grass/GrassAlpha.tga.png" id="2_rpb6g"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hr0c2"]
+noise_type = 3
+seed = 150
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nvhxk"]
+width = 256
+height = 256
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_hr0c2")
 
 [resource]
 render_priority = 0
@@ -9,3 +21,8 @@ shader = ExtResource("1_nvhxk")
 shader_parameter/alpha = ExtResource("2_rpb6g")
 shader_parameter/grass_base_color = Color(0.409, 0.906, 0.373, 1)
 shader_parameter/grass_tip_color = Color(0.31004, 0.69, 0.2829, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_nvhxk")
+shader_parameter/noise_texture_size = 256.0
+shader_parameter/wind_direction = Vector3(-0.7, 0, 0.7)
+shader_parameter/wind_speed = 7.0
+shader_parameter/wind_power = 2.0
