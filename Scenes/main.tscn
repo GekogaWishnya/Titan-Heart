@@ -1,13 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://cf4vrs85k730j"]
+[gd_scene load_steps=30 format=3 uid="uid://cf4vrs85k730j"]
 
 [ext_resource type="Texture2D" uid="uid://36qdlakvg0u" path="res://Skyboxes/day_halfed.png" id="1_jjvhh"]
-[ext_resource type="Material" uid="uid://cwr7da5v1w1i6" path="res://Shaders/Water/day_water.tres" id="2_jjvhh"]
+[ext_resource type="Material" uid="uid://cwr7da5v1w1i6" path="res://Materials/Water/day_water.tres" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://4rhcdcposffy" path="res://Scripts/Player/player_controller.gd" id="3_8gbba"]
 [ext_resource type="Shader" uid="uid://bw0p0fbtu1u6j" path="res://Shaders/Ripple/ripple.gdshader" id="3_21xkr"]
 [ext_resource type="ArrayMesh" uid="uid://q5t07kgd0fxg" path="res://Meshes/Ripple/ripple.obj" id="3_kry3j"]
+[ext_resource type="ArrayMesh" uid="uid://bc6g0ghitdjjj" path="res://Meshes/Island/island_disc.obj" id="4_d1ilt"]
 [ext_resource type="Script" uid="uid://biwmtkvwnm1v6" path="res://Scripts/Environment/Encased Area/encased_area.gd" id="5_344ge"]
+[ext_resource type="Material" uid="uid://1x4m70410nuy" path="res://Materials/Grass/grass_patch.tres" id="5_fdnlq"]
 [ext_resource type="Script" uid="uid://dser4q81gmdgh" path="res://Scripts/Camera/camera_rotation.gd" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://ca5pj71tqa63w" path="res://Scripts/Camera/camera_anchor.gd" id="6_6bp64"]
+[ext_resource type="ArrayMesh" uid="uid://bhjws6hohlto8" path="res://Meshes/Grass/grass_patch.obj" id="6_jkdf5"]
 [ext_resource type="Script" uid="uid://bimitmh5kjcxg" path="res://Scripts/Environment/Ripple/player_follow_ripple.gd" id="9_hptm8"]
 [ext_resource type="Script" uid="uid://clbjuqjdiichv" path="res://Scripts/Environment/Ripple/ripple_animation_player.gd" id="9_ynf5e"]
 
@@ -62,6 +65,7 @@ fog_depth_begin = 3420.5
 fog_depth_end = 4000.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_21xkr"]
+radius = 500.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjvhh"]
 diffuse_mode = 3
@@ -72,7 +76,11 @@ distance_fade_mode = 2
 distance_fade_min_distance = 450.0
 distance_fade_max_distance = 400.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_jjvhh"]
+[sub_resource type="MultiMesh" id="MultiMesh_fdnlq"]
+transform_format = 1
+instance_count = 32
+mesh = ExtResource("6_jkdf5")
+buffer = PackedFloat32Array(0.282789, 0.0227985, 0.309929, 25.7316, 0.0128171, 0.417828, -0.0424303, 1.25558, -0.310502, 0.0380111, 0.280515, 40.7516, -0.197675, -0.0368849, -0.426828, -32.0652, 0.0149614, 0.469191, -0.0474748, 1.97016, 0.428158, -0.0334246, -0.195402, -26.3433, 0.0133449, -0.0460866, -0.439019, -39.4172, -0.00546786, 0.439169, -0.0462685, 2.1188, 0.441398, 0.0068336, 0.0126999, 7.20695, 0.399745, 0.00082022, -0.00417641, 0.883857, -0.000993316, 0.39942, -0.0166316, 3.11915, 0.00413866, 0.0166411, 0.399399, 21.0977, -0.15084, 0.0125053, 0.269769, 19.2147, 0.00336481, 0.30906, -0.0124453, 3.16644, -0.270038, -0.00313428, -0.150845, -5.52743, -0.367008, -0.00942605, 0.0227142, -15.2616, -0.0116846, 0.365778, -0.0370035, 0.416118, -0.0216392, -0.0376423, -0.365259, -54.0089, -0.0632661, 0.0121462, 0.356949, 26.7891, -0.00674779, 0.362401, -0.0135277, 2.65687, -0.357092, -0.00900005, -0.0629852, -17.9288, 0.0734157, 0.031388, 0.435754, 31.6298, 0.0290348, 0.440536, -0.0366243, 1.12114, -0.435917, 0.0346287, 0.0709488, 38.0709, 0.278354, -0.0122856, -0.201284, -32.2762, 0.00563274, 0.343427, -0.013172, 2.4673, 0.20158, 0.00736835, 0.278313, 17.6214, -0.351793, -0.0198895, -0.102025, -29.8595, -0.00976318, 0.364781, -0.0374487, 0.0954113, 0.103486, -0.0331984, -0.350359, -51.0296, 0.432695, 0.017256, 0.219088, 14.3156, 0.00646853, 0.482598, -0.0507859, 1.30833, -0.219671, 0.0482004, 0.43005, 45.5241, -0.348453, -0.00905652, 0.0582911, -8.41223, -0.0148547, 0.351439, -0.0341962, 2.12937, -0.0570896, -0.0361666, -0.346889, -39.0759, 0.240462, -0.00484152, -0.200074, -5.50118, -0.0171818, 0.311104, -0.0281784, 1.33804, 0.199394, 0.0326465, 0.238854, 47.1088, -0.219944, -0.0247737, -0.326457, -25.7494, 0.0139893, 0.392214, -0.0391888, 1.90808, 0.327097, -0.0334324, -0.217838, -33.2363, 0.373963, 0.000896052, 0.22557, 2.18538, 0.00862319, 0.436348, -0.0160294, 2.92329, -0.225407, 0.0181796, 0.37362, 25.7346, -0.424326, -0.0196941, -0.100353, -23.1104, -0.00948883, 0.43404, -0.0450575, 0.518891, 0.101826, -0.0416217, -0.422386, -50.0533, 0.372143, -0.0136728, 0.0960516, -13.3685, 0.0227254, 0.382436, -0.0336083, 1.94635, -0.0943208, 0.0381971, 0.370874, 39.4758, -0.350168, 0.000758114, -0.117944, 1.37152, 0.00562748, 0.369177, -0.0143347, 3.39847, 0.117812, -0.015381, -0.349875, -14.3713, -0.0733731, 0.0462599, 0.457615, 42.9515, 0.0237509, 0.463164, -0.0430127, 1.52802, -0.459334, 0.0165595, -0.0753227, 15.3575, -0.0385825, -0.0164735, -0.417713, -16.2906, 0.00436132, 0.41945, -0.0169449, 3.28757, 0.418015, -0.00589679, -0.0383779, -5.16995, 0.275513, -0.024287, -0.270287, -26.943, -0.00572481, 0.384562, -0.0403909, 1.25378, 0.271315, 0.0327771, 0.273616, 40.0274, 0.049751, 0.0398608, 0.3729, 37.7083, -0.00722855, 0.376199, -0.039249, 2.35715, -0.374955, -0.0019636, 0.050235, -2.78726, -0.442493, -0.00237994, -0.119194, -1.73246, 0.010274, 0.455714, -0.04724, 1.76278, 0.118774, -0.0482857, -0.43997, -43.3717, 0.360871, -0.027618, -0.249257, -28.3428, 0.0014374, 0.437001, -0.0463393, 1.61665, 0.250778, 0.0372376, 0.358947, 34.7317, 0.185495, -0.00687609, -0.261578, -6.62258, -0.00537871, 0.320468, -0.0122384, 3.45524, 0.261613, 0.0114642, 0.185219, 11.2556, 0.0280334, -0.0128164, -0.309343, -15.7421, 0.00305087, 0.310605, -0.0125922, 3.33845, 0.309594, -0.00190033, 0.0281348, -1.96564, -0.12603, 0.0307004, 0.33815, 39.5724, -0.0106924, 0.360155, -0.0366833, 1.02813, -0.339372, -0.0227482, -0.124421, -31.1274, 0.457286, -0.0209634, -0.0813385, -21.357, 0.012772, 0.462342, -0.0473556, 0.622843, 0.0830198, 0.0443419, 0.45531, 49.7973, 0.169183, -0.0131175, -0.325413, -27.297, -0.000935232, 0.36668, -0.0152672, 2.64351, 0.325676, 0.00786727, 0.169002, 17.7108, 0.145669, -0.0289831, -0.283732, -40.1053, -0.00229365, 0.318468, -0.0337089, 1.4119, 0.285199, 0.0173646, 0.144648, 23.947, -0.359793, -0.00691057, -0.144903, -11.4553, -0.000944073, 0.387601, -0.0161409, 2.86213, 0.145065, -0.0146173, -0.359497, -24.7581, -0.241391, 0.0166692, 0.189688, 22.8415, -0.00416364, 0.30574, -0.032166, 1.90228, -0.190373, -0.0278232, -0.239819, -35.3778)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_21xkr"]
 
@@ -85,6 +93,33 @@ size = Vector3(1000, 100, 1000)
 render_priority = 0
 shader = ExtResource("3_21xkr")
 shader_parameter/albedo = Color(2, 2, 2, 1)
+
+[sub_resource type="Animation" id="Animation_ynf5e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6, 0.6, 0.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_344ge"]
 resource_name = "Ripple Animation"
@@ -112,33 +147,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
 "values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_ynf5e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.6, 0.6, 0.6)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:transparency")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ynf5e"]
@@ -175,17 +183,28 @@ rotation_duration = 0.45
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Island SB" type="StaticBody3D" parent="Environment"]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, -496, 0)
 collision_layer = 2
 
 [node name="Collision Shape" type="CollisionShape3D" parent="Environment/Island SB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -496, 0)
 shape = SubResource("SphereShape3D_21xkr")
 
 [node name="Island" type="MeshInstance3D" parent="Environment/Island SB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496, 0)
 material_override = SubResource("StandardMaterial3D_jjvhh")
 cast_shadow = 0
-mesh = SubResource("SphereMesh_jjvhh")
+mesh = ExtResource("4_d1ilt")
 skeleton = NodePath("../..")
+
+[node name="Grass MMI" type="MultiMeshInstance3D" parent="Environment/Island SB/Island"]
+material_override = ExtResource("5_fdnlq")
+multimesh = SubResource("MultiMesh_fdnlq")
+
+[node name="Grass" type="MeshInstance3D" parent="Environment/Island SB/Island"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86791, 3.26096, 30.0365)
+visible = false
+material_override = ExtResource("5_fdnlq")
+mesh = ExtResource("6_jkdf5")
 
 [node name="Water SB" type="StaticBody3D" parent="Environment"]
 collision_layer = 2

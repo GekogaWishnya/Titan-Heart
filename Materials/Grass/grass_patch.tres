@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1x4m70410nuy"]
+
+[ext_resource type="Shader" uid="uid://dswonvtwc1nbw" path="res://Shaders/Grass/grass.gdshader" id="1_nvhxk"]
+[ext_resource type="Texture2D" uid="uid://c8j451wdkwlaw" path="res://Textures/Grass/GrassAlpha.tga.png" id="2_rpb6g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nvhxk")
+shader_parameter/alpha = ExtResource("2_rpb6g")
+shader_parameter/grass_base_color = Color(0.409, 0.906, 0.373, 1)
+shader_parameter/grass_tip_color = Color(0.31004, 0.69, 0.2829, 1)
