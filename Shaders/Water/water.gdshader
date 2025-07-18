@@ -1,8 +1,8 @@
 shader_type spatial;
-render_mode unshaded, cull_back, shadows_disabled, world_vertex_coords;
+render_mode cull_back, shadows_disabled, world_vertex_coords, unshaded;
 
 uniform sampler2D sky;
-uniform float sky_brightness : hint_range(0.0, 10.0, 0.05) = 1.0;
+uniform float sky_factor : hint_range(0.0, 10.0, 0.05) = 1.0;
 uniform vec4 water_color : source_color = vec4(0.467, 0.812, 0.949, 1.0);
 uniform float tone_factor : hint_range(0.0, 10.0, 0.01) = 1.0;
 
@@ -20,6 +20,7 @@ void fragment() {
 		(0.5 + camera_y_half_angle) * 2.0
 	);
 	
-	float mix_factor = expStep(-camera_y_half_angle * 2.0, tone_factor);
-	ALBEDO = mix(water_color.rgb, texture(sky, sphere_uv).rgb * sky_brightness, mix_factor);
+	float water_factor = 1.0 - expStep(-camera_y_half_angle * 2.0, tone_factor);
+	vec3 color = (textureLod(sky, sphere_uv, 0.0).rgb * sky_factor + water_color.rgb * water_factor);
+	ALBEDO = color / max(max(color.r, color.g), color.b);
 }

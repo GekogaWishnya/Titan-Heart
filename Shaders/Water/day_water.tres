@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cwr7da5v1w1i6"]
+
+[ext_resource type="Shader" uid="uid://cewlnq44w4d7y" path="res://Shaders/Water/water_shaded.gdshader" id="1_fdkev"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fdkev")
+shader_parameter/water_color = Color(0.467, 0.812, 0.949, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 1.0
+shader_parameter/tone_distance = 1400.0
+shader_parameter/tone_factor = 0.3

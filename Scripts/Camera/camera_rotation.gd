@@ -8,8 +8,10 @@ var target_agle : Vector3
 var tween : Tween
 
 func _ready():
+	assert(anchor, "anchor is not set on %s" % get_path())
+	
 	angle_step = 360.0 / angles
-	target_agle = rotation
+	target_agle = anchor.rotation_degrees
 
 func _process(_delta):
 	if (!Input.is_action_just_pressed("Camera Rotate Left") 
