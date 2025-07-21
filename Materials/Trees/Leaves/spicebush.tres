@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://v03ca11rm3oc"]
+
+[ext_resource type="Shader" uid="uid://dn4marm2ty271" path="res://Shaders/Trees/leaves.gdshader" id="1_6dslt"]
+[ext_resource type="Texture2D" uid="uid://c8kh82hbumwku" path="res://Textures/Trees/Spicebush/Spicbush_leaves(512p).png" id="2_6m1qq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hr0c2"]
+noise_type = 3
+seed = 150
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nvhxk"]
+width = 256
+height = 256
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_hr0c2")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6dslt")
+shader_parameter/roughness = 1.0
+shader_parameter/distance_fade_min = 450.0
+shader_parameter/distance_fade_max = 400.0
+shader_parameter/alpha_mask = ExtResource("2_6m1qq")
+shader_parameter/leave_color = Color(0.996078, 0.898039, 0.160784, 1)
+shader_parameter/under_color = Color(0.745098, 0.435294, 0.0392157, 1)
+shader_parameter/normal_offset = 1.25
+shader_parameter/normal_softness = 6.0
+shader_parameter/ss_tint = Color(1, 0.883333, 0, 1)
+shader_parameter/ss_radius = 0.12
+shader_parameter/ss_power = 0.977
+shader_parameter/noise = SubResource("NoiseTexture2D_nvhxk")
+shader_parameter/aabb_size = 128.0
+shader_parameter/wind_direction = Vector3(-0.7, 0, 0.7)
+shader_parameter/wind_speed = 7.0
+shader_parameter/wind_power = 2.0

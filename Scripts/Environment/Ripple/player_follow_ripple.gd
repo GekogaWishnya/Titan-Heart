@@ -12,5 +12,5 @@ func _ready():
 	animation_player.play("Ripple Animation")
 
 func _on_ripple_animation_started(_anim_name):
-	position.x = target.position.x
-	position.z = target.position.z
+	global_position.x = target.global_position.x
+	global_position.z = target.global_position.z
