@@ -240,7 +240,7 @@ camera_anchor = NodePath("../Camera Anchor")
 [node name="Player Body" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_bo1nx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="Collision Shape" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_8gbba")
 
 [node name="Environment" type="Node3D" parent="."]
@@ -252,9 +252,16 @@ collision = NodePath("Collision Shape")
 
 [node name="Collision Shape" type="CollisionShape3D" parent="Environment/Encased Area"]
 shape = SubResource("BoxShape3D_ynf5e")
+debug_color = Color(0.885398, 0.000301106, 0.807845, 0.42)
 
 [node name="Water SB" type="StaticBody3D" parent="Environment"]
 collision_layer = 2
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="Collision Shape" type="CollisionShape3D" parent="Environment/Water SB"]
 shape = SubResource("WorldBoundaryShape3D_21xkr")
@@ -287,6 +294,12 @@ script = ExtResource("9_ynf5e")
 
 [node name="Island SB" type="StaticBody3D" parent="Environment"]
 collision_layer = 2
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="Collision Shape" type="CollisionShape3D" parent="Environment/Island SB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -496, 0)

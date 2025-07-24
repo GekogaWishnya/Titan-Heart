@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wo8426jl1ujl"
+uid="uid://dp6hmq6vwbdbd"
 path="res://.godot/imported/Spicebush.fbx-67e721474f523a90e0e15696d033b107.scn"
 
 [deps]
@@ -26,7 +26,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true
@@ -40,10 +40,18 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://Prefub Scenes/Trees/Spicebush/leaves.res"
+"save_to_file/path": "uid://cx61klldq75pq"
+},
+"_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://Prefub Scenes/Trees/Spicebush/leaves_round_normals.res"
 }
 }
 }
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=0
+fbx/embedded_image_handling=1

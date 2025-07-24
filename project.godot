@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Heart Of The Titan"
+config/name="Heart of the Titan"
+config/version="1.0.0.0"
 run/main_scene="uid://cf4vrs85k730j"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c63jwlci1q3ai"
+config/windows_native_icon="res://Heart_Of_The_Titan.ico"
 
 [display]
 
