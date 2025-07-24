@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dnfw65e5lb524"]
 
-[ext_resource type="ArrayMesh" uid="uid://tpx7n5byv0cg" path="res://Prefub Scenes/Trees/Spicebush/trunk.res" id="1_udte6"]
-[ext_resource type="ArrayMesh" uid="uid://cx61klldq75pq" path="res://Prefub Scenes/Trees/Spicebush/leaves.res" id="2_5on14"]
+[ext_resource type="ArrayMesh" uid="uid://cx61klldq75pq" path="res://Prefub Scenes/Trees/Spicebush/trunk.res" id="2_5on14"]
 [ext_resource type="Material" uid="uid://v03ca11rm3oc" path="res://Materials/Trees/Leaves/spicebush.tres" id="2_8fmj5"]
+[ext_resource type="ArrayMesh" uid="uid://d4krkoqplndcy" path="res://Prefub Scenes/Trees/Spicebush/leaves_round_normals.res" id="3_5on14"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5on14"]
 albedo_color = Color(0.2, 0.0533333, 0, 1)
@@ -23,7 +23,7 @@ mesh = ExtResource("2_5on14")
 [node name="Leaves" type="MeshInstance3D" parent="Trunk"]
 material_override = ExtResource("2_8fmj5")
 gi_mode = 2
-mesh = ExtResource("1_udte6")
+mesh = ExtResource("3_5on14")
 skeleton = NodePath("../..")
 
 [node name="Static  Body" type="StaticBody3D" parent="."]

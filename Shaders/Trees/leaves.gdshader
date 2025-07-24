@@ -55,6 +55,4 @@ void fragment() {
 	float ss_base = clamp(fresnel(ss_radius, NORMAL, VIEW), 0.0, 1.0);
 	vec3 ss_color = ss_base * ss_tint.rgb * ss_power;
 	EMISSION = ss_color;
-	
-	NORMAL = vec3(0.0, 1.0, 0.0);
 }
